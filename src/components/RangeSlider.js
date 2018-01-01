@@ -4,7 +4,7 @@ import { StyleSheet, css } from "aphrodite";
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 8
+    marginBottom: 24
   },
   title: {
     color: "#5a7a9b",

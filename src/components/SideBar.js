@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     width: 240,
     height: "100vh",
     backgroundColor: "#34495e",
-    padding: 24
+    padding: 32
   }
 });
 

@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 32
+  },
   title: {
     color: "white",
     fontFamily: "Roboto",
@@ -10,13 +13,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
     marginBottom: 24
+  },
+  content: {
+    marginTop: 12
   }
 });
 
 const SideSection = ({ title, children }) => (
-  <div>
+  <div className={css(styles.container)}>
     <label className={css(styles.title)}>{title}</label>
-    {children}
+    <div className={css(styles.content)}>{children}</div>
   </div>
 );
 
