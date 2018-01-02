@@ -7,7 +7,21 @@ const styles = StyleSheet.create({
     width: 240,
     height: "100vh",
     backgroundColor: "#34495e",
-    padding: 32
+    padding: 32,
+    overflowY: "scroll",
+    "::-webkit-scrollbar": {
+      width: 8
+    },
+    "::-webkit-scrollbar-track": {
+      backgroundColor: "#3d5670"
+    },
+    "::-webkit-scrollbar-thumb": {
+      borderRadius: 10,
+      backgroundColor: "#476584",
+      ":hover": {
+        backgroundColor: "#4f7399"
+      }
+    }
   }
 });
 
