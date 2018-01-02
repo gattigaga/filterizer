@@ -4,12 +4,14 @@ import { StyleSheet, css } from "aphrodite";
 import SideBar from "./components/SideBar";
 import SideSection from "./components/SideSection";
 import RangeSlider from "./components/RangeSlider";
+import Display from "./components/Display";
 
 const styles = StyleSheet.create({
   container: {
     width: "100vw",
     height: "100vh",
-    overflow: "hidden"
+    overflow: "hidden",
+    display: "flex"
   },
   title: {
     fontFamily: "Roboto",
@@ -26,10 +28,10 @@ class App extends Component {
     super(props);
 
     this.state = {
-      // Factor
-      brightness: 0,
-      contrast: 0,
-      saturation: 0,
+      // Filter
+      brightness: 100,
+      contrast: 100,
+      saturate: 100,
       sepia: 0,
       grayscale: 0,
       invert: 0,
@@ -42,7 +44,7 @@ class App extends Component {
     const {
       brightness,
       contrast,
-      saturation,
+      saturate,
       sepia,
       grayscale,
       invert,
@@ -59,16 +61,19 @@ class App extends Component {
               label="Brightness"
               value={brightness}
               onChange={e => this.setState({ brightness: e.target.value })}
+              max={200}
             />
             <RangeSlider
               label="Contrast"
               value={contrast}
               onChange={e => this.setState({ contrast: e.target.value })}
+              max={200}
             />
             <RangeSlider
-              label="Saturation"
-              value={saturation}
-              onChange={e => this.setState({ saturation: e.target.value })}
+              label="Saturate"
+              value={saturate}
+              onChange={e => this.setState({ saturate: e.target.value })}
+              max={200}
             />
             <RangeSlider
               label="Sepia"
@@ -89,14 +94,30 @@ class App extends Component {
               label="Hue"
               value={hue}
               onChange={e => this.setState({ hue: e.target.value })}
+              max={360}
+              unit="deg"
             />
             <RangeSlider
               label="Blur"
               value={blur}
               onChange={e => this.setState({ blur: e.target.value })}
+              max={10}
+              unit="px"
             />
           </SideSection>
         </SideBar>
+        <Display
+          filter={{
+            brightness,
+            contrast,
+            saturate,
+            sepia,
+            grayscale,
+            invert,
+            hue,
+            blur
+          }}
+        />
       </div>
     );
   }
