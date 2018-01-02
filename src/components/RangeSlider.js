@@ -56,11 +56,13 @@ const styles = StyleSheet.create({
   }
 });
 
-const RangeSlider = ({ label, value, onChange, min, max }) => (
+const RangeSlider = ({ label, value, onChange, min, max, unit }) => (
   <div className={css(styles.container)}>
     <div className={css(styles.info)}>
       <label className={css(styles.title)}>{label}</label>
-      <span className={css(styles.value)}>{value} %</span>
+      <span className={css(styles.value)}>
+        {value} {unit}
+      </span>
     </div>
     <input
       type="range"
@@ -78,13 +80,15 @@ RangeSlider.propTypes = {
   value: PropTypes.number.isRequired,
   min: PropTypes.number,
   max: PropTypes.number,
+  unit: PropTypes.string,
   onChange: PropTypes.func
 };
 
 RangeSlider.defaultProps = {
   value: 0,
   min: 0,
-  max: 100
+  max: 100,
+  unit: "%"
 };
 
 export default RangeSlider;

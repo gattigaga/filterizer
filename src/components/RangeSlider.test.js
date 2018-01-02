@@ -9,7 +9,7 @@ let wrapper;
 
 beforeEach(() => {
   StyleSheetTestUtils.suppressStyleInjection();
-  wrapper = shallow(<RangeSlider label="Brightness" value={25} />);
+  wrapper = shallow(<RangeSlider label="Brightness" value={25} unit="px" />);
 });
 
 afterEach(() => {
@@ -22,4 +22,8 @@ it("should render label", () => {
 
 it("should has correct value", () => {
   expect(wrapper.find("input").props().value).toBe(25);
+});
+
+it("should has correct unit", () => {
+  expect(wrapper.find("span").contains("px")).toBe(true);
 });
