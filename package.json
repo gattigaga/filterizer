@@ -9,6 +9,7 @@
     "react-color": "^2.13.8",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
+    "react-syntax-highlighter": "^6.1.1",
     "typeface-roboto": "^0.0.45"
   },
   "scripts": {
